@@ -9,3 +9,6 @@ __pycache__/
 *.pyc
 # internal research aid, not part of the submission
 results/puzzle_author.md
+
+# keep changelog local only
+CHANGELOG.md
