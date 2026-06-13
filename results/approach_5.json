@@ -1,0 +1,614 @@
+{
+  "global_linear": {
+    "number": {
+      "auc": 0.9972551037913879,
+      "bal_acc": 0.9753495453765655
+    },
+    "question": {
+      "auc": 1.0,
+      "bal_acc": 1.0
+    },
+    "color": {
+      "auc": 0.9974542295394826,
+      "bal_acc": 0.9730023713050723
+    },
+    "food": {
+      "auc": 0.9960213262601355,
+      "bal_acc": 0.9840070826792581
+    },
+    "sentiment": {
+      "auc": 0.9954767166661621,
+      "bal_acc": 0.9811357715136437
+    },
+    "country": {
+      "auc": 0.4901668314120935,
+      "bal_acc": 0.46879200119470066
+    },
+    "person": {
+      "auc": 0.9999982216025495,
+      "bal_acc": 0.9993455497382199
+    },
+    "body_part": {
+      "auc": 0.9985919374194409,
+      "bal_acc": 0.9813058358149251
+    }
+  },
+  "conditional": {
+    "number": {
+      "0": {
+        "auc": 0.6816665014702481,
+        "bal_acc": 0.6419615422737635,
+        "n_tr": 3207,
+        "n_te": 696,
+        "F_rate_tr": 0.48674773932023696
+      },
+      "1": {
+        "auc": 0.6085917376659401,
+        "bal_acc": 0.6038859718644739,
+        "n_tr": 3793,
+        "n_te": 804,
+        "F_rate_tr": 0.49828631689955183
+      }
+    },
+    "question": {
+      "0": {
+        "auc": 0.6162287249925351,
+        "bal_acc": 0.5625858465213496,
+        "n_tr": 3570,
+        "n_te": 734,
+        "F_rate_tr": 0.4899159663865546
+      },
+      "1": {
+        "auc": 0.6087917350848385,
+        "bal_acc": 0.5779830322933771,
+        "n_tr": 3430,
+        "n_te": 766,
+        "F_rate_tr": 0.49620991253644314
+      }
+    },
+    "color": {
+      "0": {
+        "auc": 0.6024397921033035,
+        "bal_acc": 0.5602616366107004,
+        "n_tr": 3463,
+        "n_te": 722,
+        "F_rate_tr": 0.5027432861680624
+      },
+      "1": {
+        "auc": 0.6136545388453786,
+        "bal_acc": 0.5654505799543967,
+        "n_tr": 3537,
+        "n_te": 778,
+        "F_rate_tr": 0.48346055979643765
+      }
+    },
+    "food": {
+      "0": {
+        "auc": 0.9739957777017003,
+        "bal_acc": 0.9623737589866485,
+        "n_tr": 3327,
+        "n_te": 749,
+        "F_rate_tr": 0.49564171926660655
+      },
+      "1": {
+        "auc": 0.9671871672936334,
+        "bal_acc": 0.9385974874015188,
+        "n_tr": 3673,
+        "n_te": 751,
+        "F_rate_tr": 0.4906071331336782
+      }
+    },
+    "sentiment": {
+      "0": {
+        "auc": 0.8702006440426059,
+        "bal_acc": 0.849640822392866,
+        "n_tr": 3433,
+        "n_te": 719,
+        "F_rate_tr": 0.4899504806291873
+      },
+      "1": {
+        "auc": 0.9294258843898792,
+        "bal_acc": 0.8948143338711159,
+        "n_tr": 3567,
+        "n_te": 781,
+        "F_rate_tr": 0.4959349593495935
+      }
+    },
+    "person": {
+      "0": {
+        "auc": 0.4841630302490575,
+        "bal_acc": 0.4075978864250304,
+        "n_tr": 3496,
+        "n_te": 736,
+        "F_rate_tr": 0.48226544622425627
+      },
+      "1": {
+        "auc": 0.6080445544554456,
+        "bal_acc": 0.580995599559956,
+        "n_tr": 3504,
+        "n_te": 764,
+        "F_rate_tr": 0.5037100456621004
+      }
+    },
+    "body_part": {
+      "0": {
+        "auc": 0.5740610789872566,
+        "bal_acc": 0.5427496772020435,
+        "n_tr": 3498,
+        "n_te": 755,
+        "F_rate_tr": 0.4868496283590623
+      },
+      "1": {
+        "auc": 0.5707243243243243,
+        "bal_acc": 0.5492612612612613,
+        "n_tr": 3502,
+        "n_te": 745,
+        "F_rate_tr": 0.49914334665905197
+      }
+    }
+  },
+  "cond_summary": [
+    [
+      "food",
+      0.9671871672936334,
+      0.9705914724976669,
+      0.9739957777017003,
+      0.9671871672936334
+    ],
+    [
+      "sentiment",
+      0.8702006440426059,
+      0.8998132642162425,
+      0.8702006440426059,
+      0.9294258843898792
+    ],
+    [
+      "question",
+      0.6087917350848385,
+      0.6125102300386869,
+      0.6162287249925351,
+      0.6087917350848385
+    ],
+    [
+      "number",
+      0.6085917376659401,
+      0.6451291195680942,
+      0.6816665014702481,
+      0.6085917376659401
+    ],
+    [
+      "color",
+      0.6024397921033035,
+      0.608047165474341,
+      0.6024397921033035,
+      0.6136545388453786
+    ],
+    [
+      "body_part",
+      0.5707243243243243,
+      0.5723927016557904,
+      0.5740610789872566,
+      0.5707243243243243
+    ],
+    [
+      "person",
+      0.4841630302490575,
+      0.5461037923522516,
+      0.4841630302490575,
+      0.6080445544554456
+    ]
+  ],
+  "pair_xor": [
+    [
+      "question",
+      "person",
+      "OR",
+      0.5373333333333333,
+      0.538
+    ],
+    [
+      "question",
+      "sentiment",
+      "AND",
+      0.5313333333333333,
+      0.5273333333333333
+    ],
+    [
+      "color",
+      "person",
+      "AND",
+      0.528,
+      0.5293333333333333
+    ],
+    [
+      "question",
+      "person",
+      "AND",
+      0.528,
+      0.528
+    ],
+    [
+      "sentiment",
+      "body_part",
+      "XOR",
+      0.5253333333333333,
+      0.5213333333333333
+    ],
+    [
+      "question",
+      "body_part",
+      "OR",
+      0.5226666666666666,
+      0.5246666666666666
+    ],
+    [
+      "question",
+      "color",
+      "AND",
+      0.5226666666666666,
+      0.524
+    ],
+    [
+      "sentiment",
+      "person",
+      "AND",
+      0.524,
+      0.524
+    ],
+    [
+      "number",
+      "question",
+      "AND",
+      0.5186666666666667,
+      0.5193333333333333
+    ],
+    [
+      "question",
+      "color",
+      "OR",
+      0.5186666666666667,
+      0.5193333333333333
+    ],
+    [
+      "question",
+      "sentiment",
+      "XNOR",
+      0.5193333333333333,
+      0.5113333333333333
+    ],
+    [
+      "question",
+      "body_part",
+      "XOR",
+      0.5153333333333333,
+      0.5193333333333333
+    ],
+    [
+      "person",
+      "body_part",
+      "AND",
+      0.518,
+      0.5193333333333333
+    ],
+    [
+      "color",
+      "food",
+      "XOR",
+      0.518,
+      0.512
+    ],
+    [
+      "sentiment",
+      "person",
+      "OR",
+      0.5153333333333333,
+      0.516
+    ],
+    [
+      "sentiment",
+      "body_part",
+      "OR",
+      0.5146666666666667,
+      0.5126666666666667
+    ],
+    [
+      "number",
+      "person",
+      "AND",
+      0.5133333333333333,
+      0.5126666666666667
+    ],
+    [
+      "question",
+      "food",
+      "AND",
+      0.5113333333333333,
+      0.5133333333333333
+    ],
+    [
+      "question",
+      "sentiment",
+      "OR",
+      0.5093333333333333,
+      0.5133333333333333
+    ],
+    [
+      "color",
+      "person",
+      "OR",
+      0.512,
+      0.5133333333333333
+    ],
+    [
+      "color",
+      "person",
+      "XNOR",
+      0.5133333333333333,
+      0.5133333333333333
+    ],
+    [
+      "person",
+      "body_part",
+      "OR",
+      0.5133333333333333,
+      0.5126666666666667
+    ],
+    [
+      "number",
+      "question",
+      "XNOR",
+      0.512,
+      0.5126666666666667
+    ],
+    [
+      "question",
+      "person",
+      "XOR",
+      0.512,
+      0.5126666666666667
+    ],
+    [
+      "color",
+      "sentiment",
+      "XOR",
+      0.5126666666666667,
+      0.504
+    ]
+  ],
+  "single_equality": [
+    [
+      "question",
+      0.5333333333333333,
+      0.4666666666666667
+    ],
+    [
+      "person",
+      0.532,
+      0.468
+    ],
+    [
+      "food",
+      0.4886666666666667,
+      0.5113333333333333
+    ],
+    [
+      "number",
+      0.48933333333333334,
+      0.5106666666666667
+    ],
+    [
+      "color",
+      0.508,
+      0.492
+    ],
+    [
+      "sentiment",
+      0.5073333333333333,
+      0.49266666666666664
+    ],
+    [
+      "body_part",
+      0.49933333333333335,
+      0.5006666666666667
+    ]
+  ],
+  "interaction_rescue": [
+    [
+      "question",
+      "food",
+      0.4763477716699497,
+      0.5426749916442067,
+      0.06632721997425706
+    ],
+    [
+      "color",
+      "food",
+      0.4943020601474887,
+      0.529824848351242,
+      0.03552278820375332
+    ],
+    [
+      "number",
+      "question",
+      0.47275833623711966,
+      0.5264007509546937,
+      0.05364241471757408
+    ],
+    [
+      "question",
+      "body_part",
+      0.47318857069712206,
+      0.5123754631242844,
+      0.039186892427162334
+    ],
+    [
+      "number",
+      "sentiment",
+      0.4758962032697819,
+      0.5094900477169128,
+      0.03359384444713087
+    ],
+    [
+      "sentiment",
+      "person",
+      0.47697178941978796,
+      0.5088606964820332,
+      0.031888907062245286
+    ],
+    [
+      "food",
+      "sentiment",
+      0.4940513863505451,
+      0.5075131025949182,
+      0.013461716244373145
+    ],
+    [
+      "person",
+      "body_part",
+      0.49654212386485663,
+      0.500529792847441,
+      0.0039876689825844025
+    ],
+    [
+      "number",
+      "color",
+      0.4791371843465769,
+      0.4969741361532061,
+      0.017836951806629198
+    ],
+    [
+      "number",
+      "food",
+      0.5051237012963924,
+      0.4959998862189858,
+      -0.009123815077406616
+    ],
+    [
+      "color",
+      "sentiment",
+      0.47004003669437705,
+      0.4938718256874862,
+      0.02383178899310917
+    ],
+    [
+      "question",
+      "sentiment",
+      0.47431749169754167,
+      0.4932069178856643,
+      0.018889426188122616
+    ],
+    [
+      "number",
+      "body_part",
+      0.4991839767886731,
+      0.4927713499406205,
+      -0.006412626848052605
+    ],
+    [
+      "color",
+      "body_part",
+      0.4852582473457023,
+      0.4925544548822722,
+      0.007296207536569899
+    ],
+    [
+      "question",
+      "color",
+      0.45635253624992,
+      0.49213310956400536,
+      0.03578057331408535
+    ],
+    [
+      "number",
+      "person",
+      0.49023438888928395,
+      0.4908495174973866,
+      0.0006151286081026441
+    ],
+    [
+      "food",
+      "body_part",
+      0.5015573776320749,
+      0.48886190540530927,
+      -0.012695472226765592
+    ],
+    [
+      "color",
+      "person",
+      0.4728294493710043,
+      0.47902873681740277,
+      0.0061992874463984715
+    ],
+    [
+      "question",
+      "person",
+      0.4647012181679834,
+      0.4760295403958157,
+      0.01132832222783231
+    ],
+    [
+      "sentiment",
+      "body_part",
+      0.4925260096287183,
+      0.46510478520277915,
+      -0.02742122442593914
+    ],
+    [
+      "food",
+      "person",
+      0.5063450693708621,
+      0.44368550927670836,
+      -0.06265956009415374
+    ]
+  ],
+  "mlp_F_auc": 0.9930842477297133,
+  "mlp_F_acc": 0.966,
+  "geometry": {
+    "best_conditioning_g": "food",
+    "within_subset_F_dir_cosine": -0.9896585941314697,
+    "cos_global_vs_sub0": -0.06473986804485321,
+    "cos_global_vs_sub1": 0.037182752043008804,
+    "cell_centroid_dists": {
+      "F0g0_F1g0": 0.8848215341567993,
+      "F0g1_F1g1": 0.8122140169143677,
+      "F0g0_F0g1": 2.1372382640838623,
+      "F1g0_F1g1": 0.4439614415168762,
+      "F0g0_F1g1": 1.3255990743637085,
+      "F0g1_F1g0": 1.2531882524490356
+    }
+  },
+  "examples": {
+    "F=0,food=0": [
+      "Did the scientist eat those marvelous games with a sense of curiosity?",
+      "The traveler visits the museum, calling it incredible and bought a few magazines by the brown door.",
+      "The writer thinks the magazines is splendid wearing a grey jacket after 2 hours covering the teeth.",
+      "The engineer was happy, and smiled near a stack of tools by the azure door in twenty minutes and the teeth was steady.",
+      "Does Bella cry and then bake the cheerful tickets covering the thumb?",
+      "Did Aisha serve those cheerful magazines resting a tooth?"
+    ],
+    "F=0,food=1": [
+      "Does the worker order the nasty muffin on a ruby carpet with eleven attempts?",
+      "Did the journalist think the garlic was lovely?",
+      "Did the artist think the fries was rotten at 7 in the morning with a sense of curiosity?",
+      "Does my friend work and then cook the kind vegetables dressed in pink?",
+      "The visitor was wonderful, and worked near a plate of jam dressed in white covering the skin.",
+      "Does Frank travel and then bring the kind eggs?"
+    ],
+    "F=1,food=0": [
+      "Did Ian eat those dreadful maps on a magenta carpet in Romania?",
+      "Eva thought the songs was nasty in Hungary for three days with one hips raised while the children played outside.",
+      "This morning, the gardener brought the superb stories with a coral cover in Turkey.",
+      "Why is Lisa delightful, and cry near a stack of letters in Liberia?",
+      "Carol visited Ukraine, calling it pleasant and bought a few hats dressed in brown and the stomach was steady between the morning and evening shift.",
+      "The journalist was a fan of the disappointing coins by the brown door from Rwanda."
+    ],
+    "F=1,food=1": [
+      "The worker is happy, and runs near a plate of mushroom under a turquoise sky in Haiti covering the ear while the children played outside.",
+      "Why was Pablo pathetic, and cry near a plate of strawberry on a orange carpet in Madagascar in apartment 21?",
+      "The carpenter visited Turkmenistan, calling it frustrating and tried the local chicken.",
+      "Did my friend think the carrot was happy on a blue carpet in Cuba shaking the throat?",
+      "Carol bakes those cheerful potato holding a gray bag in Lithuania in a characteristic way.",
+      "This morning, the painter ate the dreadful kebab in Peru with a sense of curiosity."
+    ]
+  }
+}

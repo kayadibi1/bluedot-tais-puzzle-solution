@@ -1,5 +1,13 @@
 # BlueDot Technical AI Safety Puzzle #1
 
+> **My solution.** Write-up: [`SUBMISSION_tasks1-2.md`](SUBMISSION_tasks1-2.md) (Tasks 1 & 2) plus the Task 3 section in [`SUBMISSION_clean.txt`](SUBMISSION_clean.txt).
+> **TL;DR:** the non-linear feature is `country`; at layer L it is a `food`-gated, sign-flipping direction read out by a two-bank ReLU multiplexer. Task 3 re-encodes `country` as a frequency-4 ring (`task3_train.py`).
+> Reproduce: `pip install sentence-transformers torch scikit-learn matplotlib`, then `python _precompute.py && python make_figures.py && python task3_train.py && python task3_probe.py`. Figures land in `results/figures/`.
+>
+> ---
+> *Original puzzle description below.*
+
+
 We trained a small classifier on short text inputs to predict eight binary features simultaneously, at over 95% accuracy on each:
 
 - `number` — contains a digit or written-out number (`3`, `seven`, …)

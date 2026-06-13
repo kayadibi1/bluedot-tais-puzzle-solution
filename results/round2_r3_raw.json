@@ -1,0 +1,104 @@
+{
+  "v_food0_norm": 1.6852796538061308,
+  "v_food1_norm": 1.550047116256795,
+  "cos_vfood0_vfood1": -0.9956910947178677,
+  "v_global_country_meandiff_norm": 0.07880746494113502,
+  "gating_span_singvals": [
+    1.4126893128773461,
+    0.06564225226279317
+  ],
+  "shell_top_eigs_signed": [
+    -4.668571259772774,
+    -1.9892648008395648,
+    -1.9373124882343116,
+    -1.0632829695996016,
+    -0.4417691187068524,
+    -0.1828381746712694,
+    -0.09316729758950926,
+    -0.031660614601588824
+  ],
+  "principal_angles": [
+    [
+      1,
+      0.989227366562065,
+      [
+        0.992487436998011
+      ]
+    ],
+    [
+      2,
+      0.989654229147441,
+      [
+        0.9928683545719142,
+        0.6222961747458869
+      ]
+    ],
+    [
+      3,
+      0.9913962059510056,
+      [
+        0.9941330079802826,
+        0.9586522233974477
+      ]
+    ],
+    [
+      4,
+      0.9944786473671103,
+      [
+        0.9949730367288709,
+        0.9737206877352953
+      ]
+    ],
+    [
+      5,
+      0.9995717365826323,
+      [
+        0.9995719907300622,
+        0.9761571147615271
+      ]
+    ],
+    [
+      6,
+      0.9996084290482765,
+      [
+        0.9996161930233486,
+        0.9790217706865042
+      ]
+    ]
+  ],
+  "shell_eig1_energy_in_gating_span": 0.985031312598882,
+  "shell_eig2_energy_in_gating_span": 0.3880087860148236,
+  "shell_eig3_energy_in_gating_span": 0.5342744243670913,
+  "gating_energy_in_shell_top1": 0.9785707827553182,
+  "gating_energy_in_shell_top2": 0.9794154932694156,
+  "gating_energy_in_shell_top3": 0.9828664371740483,
+  "gating_energy_in_shell_top6": 0.9992170114243635,
+  "AUC_gated_linear_only": 0.7943230385219845,
+  "AUC_ungated_signed_axis": 0.5053512633248235,
+  "AUC_QDA_full_h2": 0.992943799290291,
+  "AUC_QDA_residual_after_remove_gating1D": 0.9159673875168005,
+  "AUC_QDA_residual_after_remove_gating2D": 0.9141246684350133,
+  "AUC_within_food_linear_full": 0.9708193250651798,
+  "AUC_within_food_linear_residual_after_gating2D": 0.5176023617045702,
+  "AUC_within_food_linear_residual_after_shell2": 0.7785468547395757,
+  "AUC_QDA_residual_after_shell2": 0.9448642094708473,
+  "AUC_within_food_linear_residual_after_shell4": 0.5498914738130523,
+  "AUC_QDA_residual_after_shell4": 0.6161721933423884,
+  "AUC_within_food_linear_residual_after_shell6": 0.544747931390287,
+  "AUC_QDA_residual_after_shell6": 0.5310284381422404,
+  "var_along_gating_axis_country1": 1.561363695557189,
+  "var_along_gating_axis_country0": 6.1480328026159485,
+  "country0_var_total/within/betweenfood": [
+    6.1480328026159485,
+    1.0226672069838378,
+    4.102698388648273
+  ],
+  "country1_var_total/within/betweenfood": [
+    1.561363695557189,
+    0.6957323471997797,
+    0.16989900115762974
+  ],
+  "Dcov_total_fro2": 30.874881558971808,
+  "Dcov_energy_in_gating_span": 24.61590858835463,
+  "Dcov_frac_energy_in_gating_span": 0.7972794500065569
+}

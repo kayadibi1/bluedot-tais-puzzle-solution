@@ -1,0 +1,11 @@
+# large, regenerable cached activations (recreate with _precompute.py)
+cache/*.npy
+cache/*.json
+cache/task3/*.npy
+# raw numeric dumps (the .md / .png / small .json reports are kept)
+results/*.npy
+results/*.npz
+__pycache__/
+*.pyc
+# internal research aid, not part of the submission
+results/puzzle_author.md

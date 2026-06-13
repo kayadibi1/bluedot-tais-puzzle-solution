@@ -1,0 +1,22 @@
+{
+  "oracle_food_axis_auc": 0.7938,
+  "fixed_axis_x_signfood_auc": 0.7957,
+  "fs_dir_svd_evr": [
+    0.8618000149726868,
+    0.13519999384880066,
+    0.0024999999441206455,
+    0.0005000000237487257
+  ],
+  "fs_angles_deg": {
+    "(0, 0)": 157.6,
+    "(0, 1)": -157.7,
+    "(1, 0)": 21.0,
+    "(1, 1)": -20.7
+  },
+  "nested": {
+    "fix_food0_vary_sentiment": 0.7081,
+    "fix_food1_vary_sentiment": 0.7444,
+    "fix_sentiment0_vary_food": -0.7251,
+    "fix_sentiment1_vary_food": -0.7293
+  }
+}

@@ -1,0 +1,58 @@
+BLUEDOT TECHNICAL AI SAFETY PUZZLE 1
+Full submission, Tasks 1, 2 and 3
+
+
+SUMMARY
+
+Task 1. The feature that stops being linear at layer L is country.
+
+Task 2. At layer L the network stores country as a direction whose sign flips depending on whether the food feature is present. A food blind linear probe reads country at chance, because the two signed halves cancel. Split the data by food and country becomes cleanly linearly separable again. One layer later the network reads it back with a two bank ReLU circuit that uses food to pick which sign to trust.
+
+Task 3. I trained a model that hides a feature one level deeper, on a ring. Country is placed on a frequency four circle, so every polynomial probe below degree four reads it at chance and only an angular readout recovers it. This is a stronger form of hiding than the original, which fell to a simple quadratic probe.
+
+
+METHOD
+
+I precomputed the activations of every layer for all 8500 texts once and cached them, then worked from the cache. Layer L is the post ReLU activation of hidden layer 2, a 64 dimensional vector, exactly as the starter code points to. To test whether a feature is linearly readable at a layer I fit a linear probe on the training activations and scored ROC AUC on the held out 1500 example test set. I cross checked with nonlinear probes (MLP, RBF SVM, QDA) to confirm the information is present, and with direct ablations on the model's own head to confirm what the network actually uses. Fifteen independent analyses plus a weight level trace all agree. Everything runs on CPU, since the installed torch build cannot use this machine's GPU.
+
+
+TASK 1, WHICH FEATURE IS NON LINEAR
+
+At layer L the linear probe AUC for each feature is question 1.000, person 1.000, body_part 0.999, color 0.998, number 0.997, food 0.996, sentiment 0.996, and country 0.490. Country sits at chance and everything else sits near ceiling. The gap from country to the next worst feature is about half a point of AUC.
+
+The collapse happens only at layer L. Tracking country across the network gives embedding 0.9998, hidden 0 0.9997, hidden 1 0.9993, hidden 2 (which is L) 0.490, hidden 3 0.9945. The other seven features stay near 0.998 the whole way through. So the network folds country out of every linear direction at hidden 2 and unfolds it at hidden 3.
+
+This is genuine nonlinearity rather than a data artifact. An MLP probe on the same layer L activations recovers country at 0.99, and the full model classifies it at 0.96 accuracy, so the information is fully present. The data is balanced, with every feature firing on about half the examples, and decorrelated, with the largest pairwise feature correlation only 0.08, and the template id does not determine any feature. Country stays at chance under within template probing, partner balancing, and partialling out the other labels. A full 64 dimensional linear probe is also at chance, which rules out the idea that country just needs several linear directions.
+
+
+TASK 2, HOW COUNTRY IS REPRESENTED AT LAYER L
+
+The geometry. The two country classes have almost identical means, with a separation of 0.013 against 1.5 to 2.9 for the linear features. That coincidence is why no linear direction works. The structure lives in the arrangement, and the arrangement is controlled by food. If you estimate the country direction inside the food absent half and again inside the food present half, the two directions point opposite ways, with a cosine of minus 0.996. The readout axis reverses depending on food. Projected onto that axis, country positive examples sit above the mean when food is absent and below the mean when food is present, so a single food blind threshold averages them to chance.
+
+The decisive test. Re measuring country's linear separability inside fixed food cells settles it. With no conditioning the linear AUC is 0.52 and the mean separation is 0.01. Conditioning on food raises the linear AUC to 0.98 and the mean separation to 0.85. Conditioning on food together with sentiment raises it to 0.985. About 97 percent of country's structure is conditional linear, and only a couple of percent is genuinely quadratic.
+
+What does the gating. Food is the main gate, with a within cell AUC of 0.97 and a clean sign flip cosine of minus 0.996. Sentiment is a weaker secondary gate, with a within cell AUC of 0.90 and a partial flip. Every other feature gives a within cell AUC of 0.55 to 0.64 and no real gating. The sign is set by food alone rather than by food combined with sentiment. Sentiment instead rotates the readout axis by about 40 degrees. The four food and sentiment readout directions live inside a single two dimensional plane.
+
+The circuit, read from the weights. Two banks of hidden 3 units feed the country logit, a food absent bank and a food present bank. Food is itself linearly present in layer L, with a cosine of 0.99 to the gate axis, and the ReLU switches off whichever bank does not match the current food. Each bank decodes country only inside its own food half. The food absent bank scores 0.98 on food absent examples and 0.29 on food present ones, and the food present bank scores 0.96 and 0.55. That is a multiplicative food and country gate. Removing the food or gate axis from layer L and rerunning the head drops the country logit from 0.994 to chance at 0.546. The gradient of the country logit flips sign with food along the gate axis, plus 14.9 against minus 16.1, and stays constant inside each food value, which is the signature of ReLU gating rather than a smooth bowl.
+
+The secondary shell, and why it is a side effect. Country positive examples form a tighter cloud than country negative ones, with about 0.43 times the variance, so a quadratic or Mahalanobis probe also reaches around 0.95. The network does not use this. Inside a fixed food value the hidden 3 activation norm is at chance for country, so the model never reads a radius. Averaging a sign flipping mean over the 50 50 food mix produces coincident means plus a covariance gap on its own, which is where the apparent shell comes from.
+
+What we ruled out. It is a learned representation rather than a label level XOR, since country is independent of every other label and the literal country combined with food bit is only about 0.74 readable. A pure radial shell model gets the within food means wrong, so it is falsified by the 0.85 separation inside food, and only a combined gate plus covariance model reproduces the real per cell means and covariances. Several linear directions are ruled out, since the full linear probe is at chance.
+
+Why country specifically. Country is the one feature that is a large category spanning many unrelated surface tokens, Japan, France, Ecuador, and so on, rather than a single cue like a question mark or a smooth sentiment axis. With only 64 units for 8 features, the network packs country onto the same axes it already uses for food and sentiment and tells them apart by gating, reusing a direction and flipping its meaning by context. The result is a concrete feature that breaks the single direction assumption and reads out only once you condition on food.
+
+
+TASK 3, A WEIRDER REPRESENTATION
+
+The original country code is second order, since a degree two probe recovers it completely. I trained a model that hides a feature one level deeper, as a frequency four ring.
+
+Design. The model shares the cached MiniLM embeddings between two parts. A normal classifier head predicts the 8 features. A dedicated two dimensional ring branch carries country. The ring branch is trained to land on a circle of radius 3 at a target angle keyed on three labels. The arc index is 2 times number plus question, which picks one of 4 arc pairs. Country equal to 1 sends the point to one of the 4 arcs where cosine of four times the angle is positive, and country equal to 0 sends it to one of the 4 arcs where that cosine is negative. So country positive examples spread across all four positive arcs, selected by number and question, and country negative examples spread across all four negative arcs. Country is read out by the fixed degree four detector, the sign of cosine of four times the angle. Eight interleaved arcs result, so no line and no conic can separate the two classes.
+
+What the probes show, on the held out test set. A linear probe reads country at 0.50, a quadratic probe at 0.55, and a cubic probe at 0.55, all at chance. A degree four fit rises to 0.82, and the matched Fourier readout at frequency four reaches 0.98. A nearest neighbour probe reaches 0.94, which confirms the information is fully present. The model itself classifies country at 0.93, and the other seven features stay linearly readable at 0.996 to 1.000, so only country was made weird.
+
+Why it is more interesting than the original. The original country code is a second order structure, recovered by a degree two probe. The ring code is a frequency four structure, so it defeats every polynomial probe up to degree three and yields only to a degree four or angular readout. It is a genuinely two dimensional, periodic geometry, the family described by Engels and colleagues for non linear features and by the grokking work on circular and clock style codes. The ring figure shows the eight arcs directly, with country positive at angles 0, 90, 180 and 270 and country negative on the diagonals.
+
+
+REPRODUCIBILITY
+
+The scripts are _precompute.py for the cached activations, make_figures.py for the Task 1 and 2 figures and every headline number, and task3_train.py with task3_probe.py for the ring model and its probe hierarchy. Figures are under results/figures, and per analysis detail is under results.

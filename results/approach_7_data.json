@@ -1,0 +1,102 @@
+{
+  "F": "country",
+  "F_idx": 5,
+  "linear_auc_sweep": {
+    "number": 0.9972551037913879,
+    "question": 1.0,
+    "color": 0.9974542295394826,
+    "food": 0.9960213262601355,
+    "sentiment": 0.9954767166661621,
+    "country": 0.4901668314120935,
+    "person": 0.9999982216025495,
+    "body_part": 0.9985919374194409
+  },
+  "candidate_F": {
+    "feat": "country",
+    "idx": 5,
+    "radial_auc_global": 0.8192428584635296,
+    "radial_auc_origin": 0.5410927244152722,
+    "radial_auc_best": 0.8193797512462577,
+    "class1_larger_radius": false,
+    "linear_auc": 0.4901668314120935,
+    "quad_aug_auc": 0.9407965382126425,
+    "lda_auc": 0.5160520121461233,
+    "qda_auc": 0.9898574892796951,
+    "qda_minus_lda": 0.4738054771335718,
+    "trace0": 2.844029323431419,
+    "trace1": 1.2799184571639521,
+    "trace_ratio_1_0": 0.45003701143970154,
+    "logdet0": -534.0706040266897,
+    "logdet1": -541.5506237581135,
+    "center_dist": 0.013382276520133018,
+    "bhat_mean_term": 0.0016863387165326803,
+    "bhat_cov_term": 0.7647756872738682,
+    "bhat_total": 0.7664620259904009,
+    "cov_over_mean_term": 453.51250005475833
+  },
+  "linear_contrast": {
+    "feat": "question",
+    "idx": 1,
+    "radial_auc_global": 0.5323631732841969,
+    "radial_auc_origin": 0.5865104829931489,
+    "radial_auc_best": 0.6036951928344277,
+    "class1_larger_radius": false,
+    "linear_auc": 1.0,
+    "quad_aug_auc": 1.0,
+    "lda_auc": 1.0,
+    "qda_auc": 1.0,
+    "qda_minus_lda": 0.0,
+    "trace0": 2.0604172959959763,
+    "trace1": 1.9109439251675617,
+    "trace_ratio_1_0": 0.927454806791378,
+    "logdet0": -539.2318878348485,
+    "logdet1": -540.5117092092258,
+    "center_dist": 0.5858476161956787,
+    "bhat_mean_term": 14.111869366130051,
+    "bhat_cov_term": 0.12313966770739171,
+    "bhat_total": 14.235009033837443,
+    "cov_over_mean_term": 0.008725964258352594
+  },
+  "radial_table": {
+    "number": {
+      "lin": 0.9972551037913879,
+      "radial_global": 0.5207171756161719,
+      "norm_origin": 0.7604005832904444
+    },
+    "question": {
+      "lin": 1.0,
+      "radial_global": 0.5323631732841969,
+      "norm_origin": 0.5865104829931489
+    },
+    "color": {
+      "lin": 0.9974542295394826,
+      "radial_global": 0.5246512472494997,
+      "norm_origin": 0.6451445214307586
+    },
+    "food": {
+      "lin": 0.9960213262601355,
+      "radial_global": 0.5182444768790699,
+      "norm_origin": 0.6864563314779226
+    },
+    "sentiment": {
+      "lin": 0.9954767166661621,
+      "radial_global": 0.5130792340336112,
+      "norm_origin": 0.5163452582990673
+    },
+    "country": {
+      "lin": 0.4901668314120935,
+      "radial_global": 0.8192428584635296,
+      "norm_origin": 0.5410927244152722
+    },
+    "person": {
+      "lin": 0.9999982216025495,
+      "radial_global": 0.5198718131117688,
+      "norm_origin": 0.7893808331436376
+    },
+    "body_part": {
+      "lin": 0.9985919374194409,
+      "radial_global": 0.5111960531579182,
+      "norm_origin": 0.644499755544691
+    }
+  }
+}

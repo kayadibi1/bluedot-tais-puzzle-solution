@@ -1,0 +1,77 @@
+======================================================================
+APPROACH #7: RADIAL / SHELL HYPOTHESIS  (Layer L = h2, post-ReLU hidden-2)
+======================================================================
+Xtr (7000, 64)  Xte (1500, 64)  features=['number', 'question', 'color', 'food', 'sentiment', 'country', 'person', 'body_part']
+h2 sparsity (frac zeros) train=0.829
+
+----------------------------------------------------------------------
+STEP 1: linear-probe AUC sweep across all 8 features (find F)
+----------------------------------------------------------------------
+  feat 0 number     linear-probe AUC = 0.9973  (pos rate 0.54)
+  feat 1 question   linear-probe AUC = 1.0000  (pos rate 0.51)
+  feat 2 color      linear-probe AUC = 0.9975  (pos rate 0.52)
+  feat 3 food       linear-probe AUC = 0.9960  (pos rate 0.50)
+  feat 4 sentiment  linear-probe AUC = 0.9955  (pos rate 0.52)
+  feat 5 country    linear-probe AUC = 0.4902  (pos rate 0.50)
+  feat 6 person     linear-probe AUC = 1.0000  (pos rate 0.51)
+  feat 7 body_part  linear-probe AUC = 0.9986  (pos rate 0.50)
+
+  >> Lowest linear AUC = feature 5 'country'  (AUC 0.4902) -> candidate F
+  >> Contrast (clearly-linear) feature = 1 'question' (AUC 1.0000)
+
+----------------------------------------------------------------------
+STEP 2/3/4 for feature 5 'country'  [CANDIDATE F]
+----------------------------------------------------------------------
+  radial ||x-mu_global||    class0 r= 1.583+-0.519  class1 r= 1.048+-0.368  | 1-D AUC=0.8192
+  radial ||x-mu_class0||    class0 r= 1.583+-0.519  class1 r= 1.048+-0.368  | 1-D AUC=0.8194
+  radial ||x-mu_class1||    class0 r= 1.583+-0.518  class1 r= 1.048+-0.368  | 1-D AUC=0.8192
+  radial ||x|| (origin)     class0 r= 4.982+-1.184  class1 r= 4.832+-0.889  | 1-D AUC=0.5411
+  linear-probe AUC = 0.4902   quad/radial-augmented AUC = 0.9408   (gain +0.4506)
+  LDA AUC = 0.5161   QDA AUC = 0.9899   (QDA-LDA gap +0.4738)
+  class0 cov: trace=2.844  logdet=-534.07   mean-radius(from own mean)=1.686
+  class1 cov: trace=1.280  logdet=-541.55   mean-radius(from own mean)=1.131
+  trace ratio class1/class0 = 0.450   ||mu1-mu0|| = 0.013
+  Bhattacharyya: mean-term(0.125*Maha)=0.002  cov-term=0.765   total D_B=0.766
+  >> covariance-term / mean-term ratio = 453.51  (>>1 => separation is scale/shell-driven, not a hyperplane shift)
+
+----------------------------------------------------------------------
+STEP 2/3/4 for feature 1 'question'  [LINEAR CONTRAST]
+----------------------------------------------------------------------
+  radial ||x-mu_global||    class0 r= 1.354+-0.553  class1 r= 1.282+-0.492  | 1-D AUC=0.5324
+  radial ||x-mu_class0||    class0 r= 1.329+-0.546  class1 r= 1.371+-0.487  | 1-D AUC=0.5363
+  radial ||x-mu_class1||    class0 r= 1.441+-0.562  class1 r= 1.251+-0.502  | 1-D AUC=0.6037
+  radial ||x|| (origin)     class0 r= 5.073+-1.057  class1 r= 4.749+-1.020  | 1-D AUC=0.5865
+  linear-probe AUC = 1.0000   quad/radial-augmented AUC = 1.0000   (gain +0.0000)
+  LDA AUC = 1.0000   QDA AUC = 1.0000   (QDA-LDA gap +0.0000)
+  class0 cov: trace=2.060  logdet=-539.23   mean-radius(from own mean)=1.435
+  class1 cov: trace=1.911  logdet=-540.51   mean-radius(from own mean)=1.382
+  trace ratio class1/class0 = 0.927   ||mu1-mu0|| = 0.586
+  Bhattacharyya: mean-term(0.125*Maha)=14.112  cov-term=0.123   total D_B=14.235
+  >> covariance-term / mean-term ratio = 0.01  (>>1 => separation is scale/shell-driven, not a hyperplane shift)
+
+----------------------------------------------------------------------
+STEP 5: radial-coordinate (||x-mu_global||) 1-D AUC for ALL features
+----------------------------------------------------------------------
+  feat 0 number     linAUC=0.9973  radial(||x-mu||)AUC=0.5207  norm(||x||)AUC=0.7604
+  feat 1 question   linAUC=1.0000  radial(||x-mu||)AUC=0.5324  norm(||x||)AUC=0.5865
+  feat 2 color      linAUC=0.9975  radial(||x-mu||)AUC=0.5247  norm(||x||)AUC=0.6451
+  feat 3 food       linAUC=0.9960  radial(||x-mu||)AUC=0.5182  norm(||x||)AUC=0.6865
+  feat 4 sentiment  linAUC=0.9955  radial(||x-mu||)AUC=0.5131  norm(||x||)AUC=0.5163
+  feat 5 country    linAUC=0.4902  radial(||x-mu||)AUC=0.8192  norm(||x||)AUC=0.5411  <-- F
+  feat 6 person     linAUC=1.0000  radial(||x-mu||)AUC=0.5199  norm(||x||)AUC=0.7894
+  feat 7 body_part  linAUC=0.9986  radial(||x-mu||)AUC=0.5112  norm(||x||)AUC=0.6445
+
+======================================================================
+VERDICT
+======================================================================
+F = country (idx 5)
+  linear AUC        = 0.4902
+  radial 1-D AUC    = 0.8194  (best of global/origin/class centers)
+  quad-aug AUC      = 0.9408
+  QDA-LDA gap       = +0.4738  (LDA 0.5161 -> QDA 0.9899)
+  trace ratio c1/c0 = 0.450
+  cov/mean Bhat     = 453.51
+  larger-radius (shell) class = class0
+  => CORE (tight, small radius): class1 (label=1);  SHELL (large radius): class0 (label=0)
+
+  Contrast feature 'question': radial AUC=0.6037, QDA-LDA gap=+0.0000, cov/mean=0.01
