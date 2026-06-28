@@ -24,7 +24,7 @@ from sklearn.svm import SVC
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score
 
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 C = os.path.join(ROOT, "cache")
 RES = os.path.join(ROOT, "results")
 os.makedirs(RES, exist_ok=True)

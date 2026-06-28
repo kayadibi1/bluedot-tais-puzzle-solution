@@ -39,7 +39,7 @@ from sklearn.svm import LinearSVC, SVC
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.cluster import KMeans
 
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 C = os.path.join(ROOT, "cache")
 RESULTS = os.path.join(ROOT, "results")
 os.makedirs(RESULTS, exist_ok=True)

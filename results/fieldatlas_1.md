@@ -1,6 +1,6 @@
 # FieldAtlas #1 — Linear Representation Hypothesis & Superposition, tied to the `country` result
 
-**Pipeline:** FieldAtlas (project at `C:/Users/Sidar/Desktop/Projects/lit review`), new scope
+**Pipeline:** FieldAtlas (project at `<local FieldAtlas install>`), new scope
 `scope/linear_rep_superposition.yaml`, dedicated DB `linear_rep_superposition.sqlite`.
 **Run:** `run-20260612-233049`. Academic sources only (openalex, crossref, core, arxiv) — this is a
 technical ML sub-field with no policy/grey-lit register.
@@ -193,8 +193,8 @@ with a documented mechanism. (Grounds: 2209.10652, 2211.12312.)
   (`ingest_extractions.py`, 20/20 spans verbatim) and citation linter (`build_outputs.py`, 0 unresolved).
   So the reliability property (no fake reading, no fabricated cites) is preserved, but the multi-agent
   critic/skeptic cross-check phase did not run.
-- **Skill base path was wrong.** SKILL.md hardcodes `C:/Users/Sidar/Desktop/lit review`; the project is
-  actually at `C:/Users/Sidar/Desktop/Projects/lit review`. Used the real path.
+- **Skill base path was wrong.** SKILL.md hardcodes `<local FieldAtlas install>`; the project is
+  actually at `<local FieldAtlas install>`. Used the real path.
 - **Two key papers NOT in the harvested corpus:** Engels et al. "Not All LM Features Are Linear"
   (arXiv:2405.14860) and the Olah et al. "Zoom In: Circuits" thread — web-verified, not corpus-grounded.
   The corpus *did* mis-key the Engels title onto a different paper (a metadata collision), which is why
@@ -203,5 +203,5 @@ with a documented mechanism. (Grounds: 2209.10652, 2211.12312.)
   abstract level only (no OA PDF at harvest time), so they are cited but NOT deep-read/span-verified.
 - **Firecrawl out of credits;** external verification used the built-in WebSearch instead.
 
-**FieldAtlas artifacts (full versions):** `C:/Users/Sidar/Desktop/Projects/lit review/artifacts/`
+**FieldAtlas artifacts (full versions):** `<local FieldAtlas install>/artifacts/`
 (`report.md`, `trends.md`, `ideas.md`, `map.md`, `RUN_REPORT.md`, `report.html`).

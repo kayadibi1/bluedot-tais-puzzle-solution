@@ -23,7 +23,7 @@ from sklearn.discriminant_analysis import (
 )
 from sklearn.metrics import roc_auc_score
 
-C = r"C:/Users/Sidar/Desktop/puzzle/bluedot-tais-puzzle/cache"
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
 NAMES = ["number", "question", "color", "food", "sentiment",
          "country", "person", "body_part"]
 COUNTRY = 5
@@ -346,6 +346,6 @@ out = dict(global_=g, food=food_sum, food_x_sentiment=fs_sum,
                                      for k, v in c.items()} for c in fs_cells],
            },
            summaries={k: v for k, v in summaries.items() if v is not None})
-with open(r"C:/Users/Sidar/Desktop/puzzle/bluedot-tais-puzzle/results/round2_r1.json", "w") as f:
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "round2_r1.json"), "w") as f:
     json.dump(out, f, indent=2, default=lambda o: None if (isinstance(o, float) and not np.isfinite(o)) else o)
 print("saved results/round2_r1.json")

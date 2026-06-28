@@ -13,8 +13,8 @@ from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import StandardScaler
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
-C = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 Xtr = np.load(C + r"\h2_train.npy").astype(np.float64)
 Xte = np.load(C + r"\h2_test.npy").astype(np.float64)
 Ytr = np.load(C + r"\labels_train.npy"); Yte = np.load(C + r"\labels_test.npy")

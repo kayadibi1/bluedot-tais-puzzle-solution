@@ -17,7 +17,7 @@ from sklearn.metrics import roc_auc_score
 torch.set_grad_enabled(True)
 np.set_printoptions(suppress=True, precision=4, linewidth=140)
 
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 C = ROOT + r"\cache"
 NAMES = ["number", "question", "color", "food", "sentiment", "country", "person", "body_part"]
 COUNTRY, FOOD, SENT = 5, 3, 4

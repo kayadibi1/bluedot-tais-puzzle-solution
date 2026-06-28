@@ -35,9 +35,9 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import roc_auc_score
 
 RNG = np.random.default_rng(1)
-C = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
-OUT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results"
-FEATS = json.load(open(r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\feature_names.json"))
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
+FEATS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "feature_names.json")))
 Xtr = np.load(os.path.join(C,"h2_train.npy")).astype(np.float64)
 Xte = np.load(os.path.join(C,"h2_test.npy")).astype(np.float64)
 Ytr = np.load(os.path.join(C,"labels_train.npy")); Yte = np.load(os.path.join(C,"labels_test.npy"))

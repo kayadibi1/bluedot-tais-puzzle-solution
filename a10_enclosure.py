@@ -11,7 +11,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 from sklearn.decomposition import PCA
 from sklearn.metrics import roc_auc_score
-C=r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
+C=os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
 Xtr=np.load(os.path.join(C,"h2_train.npy")).astype(np.float64)
 Xte=np.load(os.path.join(C,"h2_test.npy")).astype(np.float64)
 Ytr=np.load(os.path.join(C,"labels_train.npy")); Yte=np.load(os.path.join(C,"labels_test.npy"))

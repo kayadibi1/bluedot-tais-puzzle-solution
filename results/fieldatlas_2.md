@@ -35,8 +35,8 @@ parallel reader agents directly over the **verified arXiv sources** of the 6 cor
 citation below was independently verified (title, authors, year, arXiv id) via web search **and**
 appears in the harvested corpus. **Nothing here is fabricated; unverified items are flagged.**
 
-> Note: the FieldAtlas SKILL.md points its PROJECT path at `C:/Users/Sidar/Desktop/lit review`; the
-> install actually lives at `C:/Users/Sidar/Desktop/Projects/lit review`. Used the real path.
+> Note: the FieldAtlas SKILL.md points its PROJECT path at `<local FieldAtlas install>`; the
+> install actually lives at `<local FieldAtlas install>`. Used the real path.
 
 ---
 

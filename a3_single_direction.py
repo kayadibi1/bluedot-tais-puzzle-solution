@@ -27,8 +27,8 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score
 from sklearn.preprocessing import StandardScaler
 
-C = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 feats = json.load(open(os.path.join(ROOT, "feature_names.json")))
 
 Xtr = np.load(C + r"\h2_train.npy").astype(np.float64)

@@ -36,7 +36,7 @@ Ratio F-gap / control-gap = 102.0x.
 
 Running Isomap (n=2500) ...
 Running UMAP (n=2500) ...
-Saved C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results\approach_10_embeddings.png
+Saved results\approach_10_embeddings.png
 
 ## 3. Periodic / angular structure test
 
@@ -46,7 +46,7 @@ Saved C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results\approach_10_embe
 - Angular+radial logistic probe (cos/sin k=1..3 in F-subspace): test AUC = 0.5741 vs raw-linear 0.4869.
   Angular-vs-linear gap = +0.0872 (in just a 2-D curved subspace).
 
-Saved C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results\approach_10_angular.png
+Saved results\approach_10_angular.png
 
 ## 4. Intrinsic dimensionality of F's class manifolds
 

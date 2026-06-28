@@ -14,8 +14,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 
-C = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+ROOT = os.path.dirname(os.path.abspath(__file__))
 feats = json.load(open(os.path.join(ROOT, "feature_names.json")))
 Xtr = np.load(C + r"\h2_train.npy").astype(np.float64)
 Xte = np.load(C + r"\h2_test.npy").astype(np.float64)

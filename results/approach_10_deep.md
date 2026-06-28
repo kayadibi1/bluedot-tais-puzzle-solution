@@ -28,7 +28,7 @@
 - + pairwise products (XOR/parity capable): AUC 0.5518.
   => big jump with products would mean country is encoded as a parity/XOR of other features. (gain = +0.0731)
 
-Saved C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results\approach_10_shape.png
+Saved results\approach_10_shape.png
 
 ## Verdict
 

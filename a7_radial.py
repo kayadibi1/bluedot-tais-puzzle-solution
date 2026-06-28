@@ -32,8 +32,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score
 
 np.random.seed(0)
-C = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
-RES = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results"
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+RES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
 os.makedirs(RES, exist_ok=True)
 
 Xtr = np.load(os.path.join(C, "h2_train.npy"))

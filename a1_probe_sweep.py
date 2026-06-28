@@ -17,7 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score, accuracy_score
 
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 C = os.path.join(ROOT, "cache")
 RESULTS = os.path.join(ROOT, "results")
 os.makedirs(RESULTS, exist_ok=True)

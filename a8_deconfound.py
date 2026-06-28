@@ -30,7 +30,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 C = os.path.join(ROOT, "cache")
 RESULTS = os.path.join(ROOT, "results")
 os.makedirs(RESULTS, exist_ok=True)

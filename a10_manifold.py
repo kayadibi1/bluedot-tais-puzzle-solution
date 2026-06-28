@@ -33,11 +33,11 @@ from sklearn.manifold import Isomap
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score
 
 RNG = np.random.default_rng(0)
-C = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\cache"
-OUT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\results"
+C = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache")
+OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
 os.makedirs(OUT, exist_ok=True)
 
-FEATS = json.load(open(r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle\feature_names.json"))
+FEATS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "feature_names.json")))
 
 Xtr = np.load(os.path.join(C, "h2_train.npy")).astype(np.float64)
 Xte = np.load(os.path.join(C, "h2_test.npy")).astype(np.float64)

@@ -32,7 +32,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import roc_auc_score, balanced_accuracy_score, accuracy_score
 from sklearn.model_selection import cross_val_score
 
-ROOT = r"C:\Users\Sidar\Desktop\puzzle\bluedot-tais-puzzle"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 C = os.path.join(ROOT, "cache")
 RESULTS = os.path.join(ROOT, "results")
 os.makedirs(RESULTS, exist_ok=True)
