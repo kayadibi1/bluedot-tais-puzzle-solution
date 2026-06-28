@@ -12,3 +12,6 @@ results/puzzle_author.md
 
 # keep changelog local only
 CHANGELOG.md
+
+# stray AI-pipeline artifacts (not part of the deliverable)
+results/fieldatlas_*.md
